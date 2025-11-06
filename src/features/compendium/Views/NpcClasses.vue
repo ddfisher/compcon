@@ -138,8 +138,13 @@ export default class NpcClasses extends Vue {
   }
 
   public get fItems(): NpcClass[] {
-    if (this.search) return this.classes.filter(x => accentInclude(JSON.stringify(x), this.search))
-    return this.classes
+    if (this.search) {
+      const searchTerms = this.search.split('|').map(term => term.trim());
+      return this.classes.filter(x => 
+        searchTerms.some(term => accentInclude(x.Name, term))
+      );
+    }
+    return this.classes;
   }
 
   private customSort(items, sortBy, sortDesc): NpcClass[] {
