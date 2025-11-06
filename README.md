@@ -39,6 +39,8 @@ COMP/CON is built with [Vue.js](https://vuejs.org/).
 ```sh
 # Install dependencies
   yarn
+# Fix outdated stuff
+  export NODE_OPTIONS=--openssl-legacy-provider
 # Run in dev mode in the browser, with hot reloading
   yarn serve
 # Build
