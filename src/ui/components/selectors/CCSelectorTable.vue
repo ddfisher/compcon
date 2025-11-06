@@ -138,7 +138,7 @@ export default Vue.extend({
       const vm = this as any
       let i = vm.items
 
-      if (vm.search) i = i.filter(x => accentInclude(x.Name, vm.search))
+      if (vm.search) i = i.filter(x => accentInclude(JSON.stringify(x), vm.search))
 
       if (Object.keys(vm.filters).length) {
         i = ItemFilter.Filter(i, vm.filters)

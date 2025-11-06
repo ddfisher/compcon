@@ -125,7 +125,7 @@ export default Vue.extend({
       let i = vm.items;
 
       if (vm.search) {
-        i = i.filter((x) => accentInclude(x.Name, vm.search) || 
+        i = i.filter((x) => accentInclude(JSON.stringify(x), vm.search) || 
           (!!x.LicenseString && accentInclude(x.LicenseString, vm.search)));
       }
 
